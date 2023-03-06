@@ -5,8 +5,8 @@ use ieee.math_real.all;
 
 package type_pkg is
 
-    type t_std_logic_arr is array(natural range<>, natural range<>) of std_logic;
-    
+    type t_std_logic_2d_arr is array(natural range<>, natural range<>) of std_logic;
+        
     type t_double_arr is array(natural range<>) of std_logic_vector(63 downto 0);
     type t_double_2d_arr is array(natural range<>, natural range<>) of std_logic_vector(63 downto 0);
     

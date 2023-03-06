@@ -71,7 +71,7 @@ architecture Structural of add_n_floats is
 --    constant c_num_stages9 : integer := integer(floor(log2(real(9-1) + 0.0000000001))) + 1;
     
     signal s_results : t_double_2d_arr(c_num_stages downto 1, get_num_adders(c_num_stages) - 1 downto 0);
-    signal s_result_valids : t_std_logic_arr(s_results'range(1), s_results'range(2));
+    signal s_result_valids : t_std_logic_2d_arr(s_results'range(1), s_results'range(2));
 
 begin
 
