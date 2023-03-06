@@ -278,7 +278,7 @@ package body type_pkg is
         
             v_seed1 := sv_seed1.get;
             v_seed2 := sv_seed2.get;
-            report "Generating random real, seed 1 = " & positive'image(v_seed1) & ", seed 2 = " & positive'image(v_seed2) severity note;
+--            report "Generating random real, seed 1 = " & positive'image(v_seed1) & ", seed 2 = " & positive'image(v_seed2) severity note;
             
             uniform(v_seed1, v_seed2, v_rnd);
             
