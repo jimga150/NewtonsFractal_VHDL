@@ -21,13 +21,13 @@
 						"TVALID": { "actual": "s_axis_a_tvalid"}
 					}
 				},
-				"/add_half_img_height/S_AXIS_B": {
+				"/add_half_img_height/S_AXIS_C": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
 						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "s_axis_b_tdata"},
-						"TVALID": { "actual": "s_axis_b_tvalid"}
+						"TDATA": { "actual": "s_axis_c_tdata"},
+						"TVALID": { "actual": "s_axis_c_tvalid"}
 					}
 				},
 				"/add_half_img_width/M_AXIS_RESULT": {
@@ -48,16 +48,16 @@
 						"TVALID": { "actual": "s_axis_a_tvalid"}
 					}
 				},
-				"/add_half_img_width/S_AXIS_B": {
+				"/add_half_img_width/S_AXIS_C": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
 						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "s_axis_b_tdata"},
-						"TVALID": { "actual": "s_axis_b_tvalid"}
+						"TDATA": { "actual": "s_axis_c_tdata"},
+						"TVALID": { "actual": "s_axis_c_tvalid"}
 					}
 				},
-				"/divide_height_2/M_AXIS_RESULT": {
+				"/fix_to_float_img_height/M_AXIS_RESULT": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -66,7 +66,7 @@
 						"TVALID": { "actual": "m_axis_result_tvalid"}
 					}
 				},
-				"/divide_height_2/S_AXIS_A": {
+				"/fix_to_float_img_height/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -75,7 +75,7 @@
 						"TVALID": { "actual": "s_axis_a_tvalid"}
 					}
 				},
-				"/divide_width_2/M_AXIS_RESULT": {
+				"/fix_to_float_img_width/M_AXIS_RESULT": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -84,7 +84,7 @@
 						"TVALID": { "actual": "m_axis_result_tvalid"}
 					}
 				},
-				"/divide_width_2/S_AXIS_A": {
+				"/fix_to_float_img_width/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -121,6 +121,15 @@
 					}
 				},
 				"/fix_to_float_y/S_AXIS_A": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_a_tdata"},
+						"TVALID": { "actual": "s_axis_a_tvalid"}
+					}
+				},
+				"/mult_scale_150/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
