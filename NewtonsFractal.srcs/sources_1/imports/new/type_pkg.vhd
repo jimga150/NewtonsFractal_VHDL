@@ -47,9 +47,32 @@ package type_pkg is
     
     pure function std_logic_to_real(i_std_logic : std_logic) return real;
     
+    type t_prot_positive is protected
+        impure function get return positive;
+        procedure set (new_val : positive);
+    end protected t_prot_positive;
+    
+    shared variable sv_seed1, sv_seed2 : t_prot_positive;
+    
+    impure function gen_random_slv(i_len : positive) return std_logic_vector;
+    
 end type_pkg;
 
 package body type_pkg is
+
+    type t_prot_positive is protected body
+    
+        variable v_pos : positive := 1;
+        
+        impure function get return positive is begin
+            return v_pos;
+        end function;
+        
+        procedure set(new_val : positive) is begin
+            v_pos := new_val;
+        end procedure;
+    
+    end protected body t_prot_positive;
 
     pure function bool_to_std_logic(i_bool : boolean) return std_logic is begin
         if (i_bool) then
@@ -237,6 +260,43 @@ package body type_pkg is
         else
             return 0.0;
         end if;
+    end function;
+    
+    impure function gen_random_slv(i_len : positive) return std_logic_vector is
+        
+        variable v_seed1, v_seed2 : positive;
+        variable v_rnd : real;
+        constant c_rng_max_width : integer := 16; --max number of bits to generate per step
+        
+        variable v_idx_low, v_idx_high, v_data_width, v_max_data_val : natural;
+        
+        variable v_ans : std_logic_vector(i_len-1 downto 0);
+        
+    begin
+        
+        for j in 0 to integer(floor(real(v_ans'length)/real(c_rng_max_width))) loop
+        
+            v_seed1 := sv_seed1.get;
+            v_seed2 := sv_seed2.get;
+            report "Generating random real, seed 1 = " & positive'image(v_seed1) & ", seed 2 = " & positive'image(v_seed2) severity note;
+            
+            uniform(v_seed1, v_seed2, v_rnd);
+            
+            sv_seed1.set(v_seed1);
+            sv_seed2.set(v_seed2);
+            
+            v_idx_low := j*c_rng_max_width;
+            v_idx_high := int_min((j+1)*c_rng_max_width - 1, v_ans'high);
+            
+            v_data_width := v_idx_high + 1 - v_idx_low;
+            v_max_data_val := 2**v_data_width;
+            
+            v_ans(v_idx_high downto v_idx_low) := std_logic_vector(to_unsigned(integer(v_rnd*real(v_max_data_val)), v_data_width));
+            
+        end loop;
+        
+        return v_ans;
+        
     end function;
 
 end type_pkg;
