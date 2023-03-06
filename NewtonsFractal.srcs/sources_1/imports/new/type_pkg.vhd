@@ -11,8 +11,10 @@ package type_pkg is
     type t_double_2d_arr is array(natural range<>, natural range<>) of std_logic_vector(63 downto 0);
     
     type t_real_arr is array(natural range<>) of real;
+    type t_real_2d_arr is array(natural range<>, natural range<>) of real;
     
     type t_int_arr is array(natural range<>) of integer;
+    type t_int_2d_arr is array(natural range<>, natural range<>) of integer;
     type t_bool_arr is array(natural range<>) of boolean;
     
     pure function bool_to_std_logic(i_bool : boolean) return std_logic; 
@@ -38,6 +40,9 @@ package type_pkg is
         i_min : integer;
         i_max : integer
     ) return integer;
+    
+    --greatest possible double value without being inf or NaN
+    constant c_double_max : std_logic_vector(63 downto 0) := x"7FEFFFFFFFFFFFFF";
     
     pure function parse_real_from_double(i_double : std_logic_vector(63 downto 0)) return real;
     

@@ -58,7 +58,7 @@ architecture Behavioral of add_n_floats_tb is
 	constant i_clk_period : time := 10 ns;
 	
 	constant c_num_tests : integer := 100;
-	shared variable v_inputs : t_double_2d_arr(c_num_tests downto 1, i_terms'range);
+	shared variable v_inputs : t_double_2d_arr(c_num_tests downto 1, i_terms'range); --TODO: make signal
 	
 begin
 
