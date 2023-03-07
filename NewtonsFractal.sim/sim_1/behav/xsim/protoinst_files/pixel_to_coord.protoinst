@@ -3,7 +3,7 @@
 	"modules": {
 		"pixel_to_coord": {
 			"proto_instances": {
-				"/add_half_img_height/M_AXIS_RESULT": {
+				"/div_x_scale/M_AXIS_RESULT": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -12,7 +12,7 @@
 						"TVALID": { "actual": "m_axis_result_tvalid"}
 					}
 				},
-				"/add_half_img_height/S_AXIS_A": {
+				"/div_x_scale/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -21,16 +21,7 @@
 						"TVALID": { "actual": "s_axis_a_tvalid"}
 					}
 				},
-				"/add_half_img_height/S_AXIS_C": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "s_axis_c_tdata"},
-						"TVALID": { "actual": "s_axis_c_tvalid"}
-					}
-				},
-				"/add_half_img_width/M_AXIS_RESULT": {
+				"/div_y_scale/M_AXIS_RESULT": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -39,22 +30,13 @@
 						"TVALID": { "actual": "m_axis_result_tvalid"}
 					}
 				},
-				"/add_half_img_width/S_AXIS_A": {
+				"/div_y_scale/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
 						"ARESETN": { "actual": "aresetn"},
 						"TDATA": { "actual": "s_axis_a_tdata"},
 						"TVALID": { "actual": "s_axis_a_tvalid"}
-					}
-				},
-				"/add_half_img_width/S_AXIS_C": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "aclk"},
-						"ARESETN": { "actual": "aresetn"},
-						"TDATA": { "actual": "s_axis_c_tdata"},
-						"TVALID": { "actual": "s_axis_c_tvalid"}
 					}
 				},
 				"/fix_to_float_img_height/M_AXIS_RESULT": {
@@ -129,6 +111,42 @@
 						"TVALID": { "actual": "s_axis_a_tvalid"}
 					}
 				},
+				"/mult_img_height_0p5/M_AXIS_RESULT": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_result_tdata"},
+						"TVALID": { "actual": "m_axis_result_tvalid"}
+					}
+				},
+				"/mult_img_height_0p5/S_AXIS_A": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_a_tdata"},
+						"TVALID": { "actual": "s_axis_a_tvalid"}
+					}
+				},
+				"/mult_img_width_0p5/M_AXIS_RESULT": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_result_tdata"},
+						"TVALID": { "actual": "m_axis_result_tvalid"}
+					}
+				},
+				"/mult_img_width_0p5/S_AXIS_A": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_a_tdata"},
+						"TVALID": { "actual": "s_axis_a_tvalid"}
+					}
+				},
 				"/mult_scale_150/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
@@ -138,7 +156,7 @@
 						"TVALID": { "actual": "s_axis_a_tvalid"}
 					}
 				},
-				"/mult_scale_x/M_AXIS_RESULT": {
+				"/sub_halfheight/M_AXIS_RESULT": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -147,7 +165,7 @@
 						"TVALID": { "actual": "m_axis_result_tvalid"}
 					}
 				},
-				"/mult_scale_x/S_AXIS_A": {
+				"/sub_halfheight/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -156,7 +174,16 @@
 						"TVALID": { "actual": "s_axis_a_tvalid"}
 					}
 				},
-				"/mult_scale_y/M_AXIS_RESULT": {
+				"/sub_halfheight/S_AXIS_B": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_b_tdata"},
+						"TVALID": { "actual": "s_axis_b_tvalid"}
+					}
+				},
+				"/sub_halfwidth/M_AXIS_RESULT": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
@@ -165,13 +192,22 @@
 						"TVALID": { "actual": "m_axis_result_tvalid"}
 					}
 				},
-				"/mult_scale_y/S_AXIS_A": {
+				"/sub_halfwidth/S_AXIS_A": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},
 						"ARESETN": { "actual": "aresetn"},
 						"TDATA": { "actual": "s_axis_a_tdata"},
 						"TVALID": { "actual": "s_axis_a_tvalid"}
+					}
+				},
+				"/sub_halfwidth/S_AXIS_B": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_b_tdata"},
+						"TVALID": { "actual": "s_axis_b_tvalid"}
 					}
 				}
 			}

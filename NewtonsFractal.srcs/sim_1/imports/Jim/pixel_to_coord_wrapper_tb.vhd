@@ -113,6 +113,8 @@ begin
 		S_AXIS_IMG_HEIGHT_tdata <= std_logic_vector(to_unsigned(60, S_AXIS_IMG_HEIGHT_tdata'length));
 		S_AXIS_IMG_HEIGHT_tvalid <= '1';
 		
+		wait for aclk_0_period*20;
+		
         for i in 1 to c_num_tests loop
             
             v_slv_input := gen_random_slv(v_slv_input'length);
@@ -165,15 +167,15 @@ begin
                 wait until M_AXIS_RESULT_X_tvalid = '1';
                 wait for aclk_0_period/2;
             end if;
-            
-            v_expected_result_x_real := real(s_x_inputs(i)) + real(to_integer(unsigned(S_AXIS_IMG_WIDTH_tdata)))*0.5;
-            v_expected_result_y_real := real(s_y_inputs(i)) + real(to_integer(unsigned(S_AXIS_IMG_HEIGHT_tdata)))*0.5;
+
+            v_expected_result_x_real := real(s_x_inputs(i)) - real(to_integer(unsigned(S_AXIS_IMG_WIDTH_tdata)))*0.5;
+            v_expected_result_y_real := real(s_y_inputs(i)) - real(to_integer(unsigned(S_AXIS_IMG_HEIGHT_tdata)))*0.5;
             
             report "v_expected_result_x_real = " & to_string(v_expected_result_x_real);
             report "v_expected_result_y_real = " & to_string(v_expected_result_y_real);
             
-            v_expected_result_x_real := v_expected_result_x_real*150.0*s_scale_real;
-            v_expected_result_y_real := v_expected_result_y_real*150.0*s_scale_real;
+            v_expected_result_x_real := v_expected_result_x_real/(150.0*s_scale_real);
+            v_expected_result_y_real := v_expected_result_y_real/(150.0*s_scale_real);
             
             report "v_expected_result_x_real = " & to_string(v_expected_result_x_real);
             report "v_expected_result_y_real = " & to_string(v_expected_result_y_real);

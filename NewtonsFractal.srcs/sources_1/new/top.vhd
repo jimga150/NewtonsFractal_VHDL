@@ -32,8 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity top is
-    Port ( clk, rst : in STD_LOGIC;
-           pixel : out STD_LOGIC_VECTOR (11 downto 0));
+    Port ( i_clk, i_rst : in STD_LOGIC;
+           o_pixel : out STD_LOGIC_VECTOR (11 downto 0));
 end top;
 
 architecture Behavioral of top is
