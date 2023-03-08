@@ -33,7 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 use work.type_pkg.all;
 
-entity pixel_gen is
+entity pixel_genv1 is
     generic(g_num_roots : integer := 5);
     port(
         i_clk : in std_logic;
@@ -46,9 +46,9 @@ entity pixel_gen is
         o_pixel : out std_logic_vector(11 downto 0);
         o_pixel_valid : out std_logic
     );
-end pixel_gen;
+end pixel_genv1;
 
-architecture Structural of pixel_gen is
+architecture Structural of pixel_genv1 is
 
     signal s_pixel_x_slv, s_pixel_y_slv, s_img_width_slv, s_img_height_slv : std_logic_vector(31 downto 0);
     
@@ -100,7 +100,11 @@ begin
 		M_AXIS_RESULT_Y_tvalid => open
 	);
 	
-	fod_inst: entity work.rootfind_iteration
+	--TODO: generate N iterations in series, where N is the max number of iteratiosn desired. 
+	--each iteration should be generated with an optional delay passthrough element that 
+	--takes the previous iteration (or passthrough) and delays it by the same number of 
+	--cycles that an iteration would take
+	rf_iter_inst: entity work.rootfind_iteration
 	generic map(
 		g_num_roots => g_num_roots
 	)

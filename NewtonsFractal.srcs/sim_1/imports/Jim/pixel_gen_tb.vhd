@@ -31,7 +31,7 @@ end pixel_gen_tb;
 architecture Behavioral of pixel_gen_tb is
 	
 	--Generics
-	constant g_num_roots : integer := 5;
+	constant g_num_roots : integer := 20;
 	
 	
 	--Clocks
@@ -114,13 +114,13 @@ begin
 		
 		wait for i_clk_period*2;
 		
---		for i in i_root_xs'range loop
---		    --move these out of the usual (0, 1] range so that no values will fall on a root
---            uniform(v_seed1, v_seed2, v_rnd);
---            s_root_x_reals(i) <= v_rnd + 1.0;
---            uniform(v_seed1, v_seed2, v_rnd);
---            s_root_y_reals(i) <= v_rnd + 1.0;
---		end loop;
+		for i in i_root_xs'range loop
+		    --move these out of the usual (0, 1] range so that no values will fall on a root
+            uniform(v_seed1, v_seed2, v_rnd);
+            s_root_x_reals(i) <= v_rnd + 1.0;
+            uniform(v_seed1, v_seed2, v_rnd);
+            s_root_y_reals(i) <= v_rnd + 1.0;
+		end loop;
 
         s_root_x_reals(0) <= 1.0;
         s_root_y_reals(0) <= 0.0;
